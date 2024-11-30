@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "ClassifiedApp",
-    "slug": "ClassifiedApp",
+    "slug": "classifiedapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -36,6 +36,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a674fc1c-c2a7-4b51-9469-87a5871951a5"
+      }
+    },
+    "owner": "joshlminga"
   }
 }
