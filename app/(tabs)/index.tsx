@@ -5,6 +5,7 @@ import { Box } from '@/components/ui/box';
 import { Input,InputField,InputSlot,InputIcon } from '@/components/ui/input';
 import { Icon } from 'react-native-elements';
 import ImageCarousel from "../../components/ImageSlider";
+import { Image } from '@/components/ui/image';
 
 export default function HomeScreen() {
   return (
@@ -15,7 +16,7 @@ export default function HomeScreen() {
             <Text className="text-black font-bold text-2l">Welcome to Azima</Text>
           </Box>
           <Box className="flex-1 bg-green-500 text-white">
-              <Text>Welcome</Text>
+              <Text>Welcome Home</Text>
           </Box>
         </HStack>
 
@@ -39,6 +40,14 @@ export default function HomeScreen() {
         <HStack space="md" reversed={false} >
           <Box  className="flex w-full ">
             <ImageCarousel />
+            
+        {/* <Image
+          source={require('../../assets/images/slide/computers.jpg')}
+          alt="Logo"
+          size='none'
+          className="aspect-[320/208] w-full max-w-[320px]"
+        />         */}
+      
           </Box>
         </HStack>
   
