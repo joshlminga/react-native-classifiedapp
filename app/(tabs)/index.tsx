@@ -1,71 +1,85 @@
-import { StyleSheet, SafeAreaView, View  } from 'react-native';
-import { HStack } from '@/components/ui/hstack';
-import { Text } from '@/components/ui/text';
+import { StyleSheet, SafeAreaView, View,ScrollView  } from 'react-native';
+
+import { Image } from '@/components/ui/image';
 import { Box } from '@/components/ui/box';
-import { Input,InputField,InputSlot,InputIcon } from '@/components/ui/input';
+import { Text } from '@/components/ui/text';
 import { Icon } from 'react-native-elements';
+import Banner from '@/components/ImageBanner';
+import { HStack } from '@/components/ui/hstack';
+import { VStack } from '@/components/ui/vstack';
 import { Link,LinkText } from '@/components/ui/link';
-import Banner from '@/components/ImageBanner'; // Import the Banner component
-import CategoriesList from '@/components/ListCategories'; // Import Categories Buttons
+import ProductListed from '@/components/FeaturedProducts';
+import CategoriesList from '@/components/ListCategories'; 
+import { Input,InputField,InputSlot,InputIcon } from '@/components/ui/input';
 
 import { Button, ButtonText} from '@/components/ui/button';
 
 export default function HomeScreen() {
   return (
-        <SafeAreaView>
-          <Box className="flex w-full max-w-4xl rounded-lg px-4">
-            <HStack space="md" className="flex w-full" reversed={false} >
-              <Box  className="flex-1">
-                <Text className="text-black font-bold text-2l">Welcome to Azima</Text>
-              </Box>
-              <Box className="flex-1 bg-green-500 text-white">
-                  <Text>Welcome Home</Text>
-              </Box>
-            </HStack>
-
-            {/* Search Area */}
-            <HStack className="flex w-full mt-5">
-              <Input className="w-full bg-cyan-50 shadow rounded-xl border-gray-300">
-                <InputField className="text-dark" placeholder="Search Product" />
-                <InputSlot className='p-2'>
-                  <Icon
-                    name='search'
-                    type='font-awesome'
-                    color='#000'
-                    size='15'
-                    onPress={() => console.log('hello')} />
-                </InputSlot>
-              </Input>
-            </HStack>
-        </Box>
-
-        {/* Banner Image Card */}
-        <HStack className="px-0 mt-5">
-            <Banner source={require('@/assets/images/cover/home-min-3x.jpg')} />      
-        </HStack>
-
-        {/* Categories Section */}
-        <Box className="flex px-4 mt-5">
-          <HStack space="md" className="justify-between">
-            <Box  className="flex-shrink-0">
-              <Text className="text-black font-bold text-3l">Categories</Text>
+      <SafeAreaView className="bg-white">
+        <Box className="flex w-full max-w-4xl rounded-lg px-4">
+          <HStack space="md" className="flex w-full" reversed={false} >
+            <Box  className="flex-1">
+              <Text className="text-black font-bold text-2xl mt-8">Welcome</Text>
             </Box>
-            <Box className="flex-shrink-0">
-              <Link href={`other/categories`}>
-                <LinkText className="no-underline">all</LinkText>
-              </Link>
+            <Box className="flex-1">
+              <Image
+                source={require('@/assets/images/logo/main-logo-mini.png')}
+                alt="Logo"
+                size='none'
+                className="w-auto rounded-2xl p-4 h-50"
+                resizeMode="contain"
+                /> 
             </Box>
           </HStack>
-        </Box>
 
-        {/* Categories Button */}
-        <Box className="flex px-4 mt-5">
-          <HStack space="md" className="">
-            <CategoriesList />
+          {/* Search Area */}
+          <HStack className="flex w-full mt-5">
+            <Input className="w-full bg-cyan-50 shadow rounded-xl border-gray-300">
+              <InputField className="text-dark" placeholder="Search Product" />
+              <InputSlot className='p-2'>
+                <Icon
+                  name='search'
+                  type='font-awesome'
+                  color='#000'
+                  size='15'
+                  onPress={() => console.log('hello')} />
+              </InputSlot>
+            </Input>
           </HStack>
         </Box>
+        <ScrollView>
+          {/* Banner Image Card */}
+          <HStack className="px-0 mt-5">
+              <Banner source={require('@/assets/images/cover/home-min-3x.jpg')} />      
+          </HStack>
 
-        {/* Product List */}
+          {/* Categories Section */}
+          <Box className="flex px-4 mt-5">
+            <HStack space="md" className="justify-between">
+              <Box  className="flex-shrink-0">
+                <Text className="text-black font-bold text-3l">Categories</Text>
+              </Box>
+              <Box className="flex-shrink-0">
+                <Link href={`other/categories`}>
+                  <LinkText className="no-underline">all</LinkText>
+                </Link>
+              </Box>
+            </HStack>
+          </Box>
+
+          {/* Categories Button */}
+          <Box className="flex px-4 mt-5">
+            <HStack space="md" className="">
+              <CategoriesList />
+            </HStack>
+          </Box>
+
+          {/* Product List */}
+          <Box className="flex px-4 mt-5">
+            <ProductListed/>
+          </Box>
+        </ScrollView>
       </SafeAreaView>
   );
 }

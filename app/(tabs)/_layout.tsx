@@ -2,6 +2,10 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 
+import { Icon } from 'react-native-elements';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
@@ -34,12 +38,26 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="search"
         options={{
-          title: 'Account',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Search',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="search" size={24} color="black"/>,
         }}
       />
-    </Tabs>
+      <Tabs.Screen
+        name="sell"
+        options={{
+          title: 'Sell',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="plus" size={24} color="black" />,
+        }}
+      />
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="user" size={24} color="black" />,
+        }}
+      />
+      </Tabs>
   );
 }
