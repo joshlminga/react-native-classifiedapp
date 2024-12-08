@@ -4,54 +4,68 @@ import { Text } from '@/components/ui/text';
 import { Box } from '@/components/ui/box';
 import { Input,InputField,InputSlot,InputIcon } from '@/components/ui/input';
 import { Icon } from 'react-native-elements';
-import ImageCarousel from "../../components/ImageSlider";
-import { Image } from '@/components/ui/image';
+import { Link,LinkText } from '@/components/ui/link';
+import Banner from '@/components/ImageBanner'; // Import the Banner component
+import CategoriesList from '@/components/ListCategories'; // Import Categories Buttons
+
+import { Button, ButtonText} from '@/components/ui/button';
 
 export default function HomeScreen() {
   return (
         <SafeAreaView>
-        <Box className="flex w-full max-w-4xl rounded-lg px-4">
-        <HStack space="md" className="flex w-full" reversed={false} >
-          <Box  className="flex-1">
-            <Text className="text-black font-bold text-2l">Welcome to Azima</Text>
-          </Box>
-          <Box className="flex-1 bg-green-500 text-white">
-              <Text>Welcome Home</Text>
-          </Box>
-        </HStack>
+          <Box className="flex w-full max-w-4xl rounded-lg px-4">
+            <HStack space="md" className="flex w-full" reversed={false} >
+              <Box  className="flex-1">
+                <Text className="text-black font-bold text-2l">Welcome to Azima</Text>
+              </Box>
+              <Box className="flex-1 bg-green-500 text-white">
+                  <Text>Welcome Home</Text>
+              </Box>
+            </HStack>
 
-        {/* Search Area */}
-        <HStack className="flex w-full mt-5">
-          <Input className="w-full bg-cyan-50 shadow rounded-xl border-gray-300">
-            <InputField className="text-dark" placeholder="Search Product" />
-            <InputSlot className='p-2'>
-              <Icon
-                name='search'
-                type='font-awesome'
-                color='#000'
-                size='15'
-                onPress={() => console.log('hello')} />
-            </InputSlot>
-          </Input>
-        </HStack>
+            {/* Search Area */}
+            <HStack className="flex w-full mt-5">
+              <Input className="w-full bg-cyan-50 shadow rounded-xl border-gray-300">
+                <InputField className="text-dark" placeholder="Search Product" />
+                <InputSlot className='p-2'>
+                  <Icon
+                    name='search'
+                    type='font-awesome'
+                    color='#000'
+                    size='15'
+                    onPress={() => console.log('hello')} />
+                </InputSlot>
+              </Input>
+            </HStack>
+        </Box>
 
         {/* Banner Image Card */}
-
-        <HStack space="md" reversed={false} >
-          <Box  className="flex w-full ">
-            <ImageCarousel />
-            
-        {/* <Image
-          source={require('../../assets/images/slide/computers.jpg')}
-          alt="Logo"
-          size='none'
-          className="aspect-[320/208] w-full max-w-[320px]"
-        />         */}
-      
-          </Box>
+        <HStack className="px-0 mt-5">
+            <Banner source={require('@/assets/images/cover/home-min-3x.jpg')} />      
         </HStack>
-  
-      </Box>
+
+        {/* Categories Section */}
+        <Box className="flex px-4 mt-5">
+          <HStack space="md" className="justify-between">
+            <Box  className="flex-shrink-0">
+              <Text className="text-black font-bold text-3l">Categories</Text>
+            </Box>
+            <Box className="flex-shrink-0">
+              <Link href={`other/categories`}>
+                <LinkText className="no-underline">all</LinkText>
+              </Link>
+            </Box>
+          </HStack>
+        </Box>
+
+        {/* Categories Button */}
+        <Box className="flex px-4 mt-5">
+          <HStack space="md" className="">
+            <CategoriesList />
+          </HStack>
+        </Box>
+
+        {/* Product List */}
       </SafeAreaView>
   );
 }
