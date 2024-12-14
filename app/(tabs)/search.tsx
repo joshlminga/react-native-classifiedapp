@@ -71,22 +71,20 @@ export default function SearchNow() {
         <Text className="" size="2xl" bold={true}>Explore Categories</Text>
       </Box>
 
-      {/* <Box className="items-center mt-5 mb-5"> */}
-        <Grid className="gap-5 p-4 mt-2"_extra={{className: 'grid-cols-6'}}>
-          <GridItem className="shadow" _extra={{className: 'col-span-3'}} >
-            <Card size="md" variant="filled" className="p-2 items-center rounded-md bg-green-50">
-              <FashionIcon  size={35} color="orange"/>
-              <Text className="text-center" size="md" bold={true}> Health & Beauty</Text>
-            </Card>
-          </GridItem>
-          <GridItem className="shadow" _extra={{className: 'col-span-3'}} >
-            <Card size="md" variant="filled" className="p-2 items-center rounded-md bg-green-50">
-              <FashionIcon  size={35} color="orange"/>
-              <Text className="text-center" size="md" bold={true}> Health & Beauty</Text>
-            </Card>
-          </GridItem>
-        </Grid>
-      {/* </Box> */}
+      <Grid className="gap-5 p-4 mt-2"_extra={{className: 'grid-cols-6'}}>
+        <GridItem className="shadow" _extra={{className: 'col-span-3'}} >
+          <Card size="md" variant="filled" className="p-2 items-center rounded-md bg-green-50">
+            <FashionIcon  size={35} color="orange"/>
+            <Text className="text-center" size="md" bold={true}> Health & Beauty</Text>
+          </Card>
+        </GridItem>
+        <GridItem className="shadow" _extra={{className: 'col-span-3'}} >
+          <Card size="md" variant="filled" className="p-2 items-center rounded-md bg-green-50">
+            <FashionIcon  size={35} color="orange"/>
+            <Text className="text-center" size="md" bold={true}> Health & Beauty</Text>
+          </Card>
+        </GridItem>
+      </Grid>
 
     </SafeAreaView>
   );
