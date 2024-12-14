@@ -8,12 +8,13 @@ export default function featuredProducts() {
 
     return (
         <FlatList 
+            data={products} 
             key={columnsNumber}
             numColumns={columnsNumber}
             className="mx-auto w-full"
             contentContainerClassName="gap-2"
             columnWrapperClassName="gap-2"
-            data={products} 
+            nestedScrollEnabled={true}
             renderItem={( {item} ) => <ProductListItem product={item} />} />
     );
 }
