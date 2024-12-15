@@ -1,4 +1,4 @@
-import { SafeAreaView, FlatList  } from 'react-native';
+import { SafeAreaView, FlatList,Platform  } from 'react-native';
 
 import { Image } from '@/components/ui/image';
 import { Box } from '@/components/ui/box';
@@ -15,7 +15,7 @@ export default function HomeScreen() {
       
   return (
     <SafeAreaView className="bg-white">
-        <Box className="items-center">
+        <Box className={`items-center ${Platform.OS === 'android' ? 'mt-10' : ''}`}>
           <Image
             source={require('@/assets/images/logo/main-logo-mini.png')}
             alt="Logo"
@@ -38,7 +38,7 @@ export default function HomeScreen() {
                     name='search'
                     type='font-awesome'
                     color='#000'
-                    size='15'
+                    size={15}
                     onPress={() => console.log('hello')} />
                 </InputSlot>
               </Input>
