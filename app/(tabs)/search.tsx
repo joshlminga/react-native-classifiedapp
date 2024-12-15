@@ -39,21 +39,12 @@ export default function SearchNow() {
                     <SelectDragIndicatorWrapper>
                       <SelectDragIndicator />
                     </SelectDragIndicatorWrapper>
-                    <SelectItem label="UX Research" value="ux" />
-                    <SelectItem label="Web Development" value="web" />
-                    <SelectItem
-                      label="Cross Platform Development Process"
-                      value="Cross Platform Development Process"
-                    />
-                    <SelectItem
-                      label="UI Designing"
-                      value="ui"
-                      isDisabled={true}
-                    />
-                    <SelectItem
-                      label="Backend Development"
-                      value="backend"
-                    />
+                    <SelectItem label="" value="" />
+                    <SelectItem label="Health & Beauty" value="ux" />
+                    <SelectItem label="Electronics" value="web" />
+                    <SelectItem label="Sporting Goods" value="sport" />
+                    <SelectItem label="Home & Office" value="ui"/>
+                    <SelectItem label="Fashion" value="backend"/>
                   </SelectContent>
                 </SelectPortal>
               </Select>      
