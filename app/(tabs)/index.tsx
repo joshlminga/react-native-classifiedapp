@@ -46,7 +46,7 @@ export default function HomeScreen() {
 
             {/* Banner Image Card */}
             <HStack className="px-0 mt-5">
-                <Banner source={require('@/assets/images/cover/home-min-3x.jpg')} />      
+                {/* <Banner source={require('@/assets/images/cover/home-min-3x.jpg')} />       */}
             </HStack>
 
             {/* Categories Section */}
