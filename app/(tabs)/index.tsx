@@ -1,9 +1,11 @@
 import { SafeAreaView, FlatList,Platform  } from 'react-native';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { SearchIcon } from '@/components/IconsList';
 
 import { Image } from '@/components/ui/image';
 import { Box } from '@/components/ui/box';
 import { Text } from '@/components/ui/text';
-import { Icon } from 'react-native-elements';
+// import { Icon } from 'react-native-elements';
 import Banner from '@/components/ImageBanner';
 import { HStack } from '@/components/ui/hstack';
 import { Link,LinkText } from '@/components/ui/link';
@@ -34,19 +36,14 @@ export default function HomeScreen() {
               <Input className="w-full bg-cyan-50 shadow rounded-xl border-gray-300">
                 <InputField className="text-dark" placeholder="Search Product" />
                 <InputSlot className='p-2'>
-                  <Icon
-                    name='search'
-                    type='font-awesome'
-                    color='#000'
-                    size={15}
-                    onPress={() => console.log('hello')} />
+                  <SearchIcon size={14} />
                 </InputSlot>
               </Input>
             </Box>
 
             {/* Banner Image Card */}
             <HStack className="px-0 mt-5">
-                {/* <Banner source={require('@/assets/images/cover/home-min-3x.jpg')} />       */}
+                <Banner source={require('@/assets/images/cover/home-min-3x.jpg')} />      
             </HStack>
 
             {/* Categories Section */}

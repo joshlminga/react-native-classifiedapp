@@ -1,5 +1,8 @@
 import { Input,InputField,InputSlot,InputIcon } from '@/components/ui/input';
 import { SafeAreaView, ScrollView, FlatList,Platform  } from 'react-native';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { SearchIcon } from '@/components/IconsList';
+
 import { Heading } from '@/components/ui/heading';
 import { HStack } from '@/components/ui/hstack';
 import { Card } from '@/components/ui/card';
@@ -14,7 +17,7 @@ import { Select, SelectTrigger, SelectInput, SelectIcon, SelectPortal, SelectBac
 export default function SearchNow() {
   return (
     <SafeAreaView className="bg-white flex-1">
-      <ScrollView>
+        <ScrollView>
         <Card size="md" variant="filled" className={`m-3 ${Platform.OS === 'android' ? 'mt-20' : ''} px-2 pt-5 shadow`}>
           <Box className="items-center">
             <Heading size="lg" className="mb-1"> Search For Products </Heading>
