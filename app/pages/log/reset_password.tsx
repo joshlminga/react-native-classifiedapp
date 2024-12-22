@@ -52,7 +52,7 @@ const ResetPassword: React.FC = () => {
                                 <Text size="lg">I have an account: </Text>
                                 <Link href={`pages/log/login`}>
                                     <HStack>
-                                    <LinkText className="text-red-800 no-underline" size="lg">Sign in here</LinkText>
+                                    <LinkText className="text-red-800 no-underline" size="lg">Sign In</LinkText>
                                     </HStack>
                                 </Link>
                                 </HStack>
@@ -63,7 +63,7 @@ const ResetPassword: React.FC = () => {
                                 <Text size="lg">I Don't have an account: </Text>
                                 <Link href={`pages/log/register`}>
                                     <HStack>
-                                    <LinkText className="text-red-800 no-underline" size="lg">Sign up here</LinkText>
+                                    <LinkText className="text-red-800 no-underline" size="lg">Sign Up</LinkText>
                                     </HStack>
                                 </Link>
                                 </HStack>
