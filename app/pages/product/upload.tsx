@@ -90,7 +90,7 @@ const ProductUploadWizard = () => {
 
         <HStack space="md" className="mt-5 px-4 justify-between">
           {step > 1 && (
-            <Button variant="solid" action="positive" onPress={handleBack} className="flex-1 mr-2">
+            <Button variant="solid" action="positive" onPress={handleBack} className="flex-1 mr-2 bg-red-600">
               <ButtonText className="text-white"><ArrowLeftIcon size={12} color="white" /> Back</ButtonText>
             </Button>
           )}
@@ -99,8 +99,8 @@ const ProductUploadWizard = () => {
               <ButtonText>Next <ArrowRightIcon size={12} color="white" /></ButtonText>
             </Button>
           ) : (
-            <Button onPress={handleSubmit} className="flex-1 ml-2">
-              <ButtonText>Submit</ButtonText>
+            <Button onPress={handleSubmit} className="flex-1 ml-2 bg-green-600">
+              <ButtonText className="text-white">Submit</ButtonText>
             </Button>
           )}
         </HStack>

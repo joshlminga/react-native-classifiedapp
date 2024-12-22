@@ -32,13 +32,13 @@ const StepFour: React.FC = () => {
             <Box className="mt-5 flex-1">
                 <Text size="md" className="mb-1">Upload a profile picture <AsteriskIcon size={8} /></Text>
                 
-                <Button size="md" variant="outline" action="positive" onPress={pickImage}>
+                <Button size="md" variant="outline" action="positive" onPress={pickImage} className="border-yellow-500 shadow">
                     <ButtonText>Click to upload</ButtonText>
                 </Button>
                 {image && <Image source={{ uri: image }} style={styles.image} />}
             </Box>
 
-                <Divider className="my-10 mb-5" />
+            <Divider className="my-10 mb-5" />
         </Box>
     );
 };
