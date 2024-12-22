@@ -1,5 +1,12 @@
+import { AsteriskIcon, ChevronDownIcon,ArrowLeftIcon, ArrowRightIcon } from '@/components/IconsList';
 import React, { useState } from 'react';
-import { View, Button, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
+import { Button, ButtonText} from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
+import { Box } from '@/components/ui/box';
+import { Divider } from '@/components/ui/divider';
+import { Heading } from '@/components/ui/heading';
+
 import * as ImagePicker from 'expo-image-picker';
 
 const StepFour: React.FC = () => {
@@ -19,10 +26,20 @@ const StepFour: React.FC = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <Button title="Upload Image" onPress={pickImage} />
-            {image && <Image source={{ uri: image }} style={styles.image} />}
-        </View>
+        <Box className="">
+            <Heading bold={true} size="xl" className="font-mono antialiased">Step 4: Image Upload</Heading>
+
+            <Box className="mt-5 flex-1">
+                <Text size="md" className="mb-1">Upload a profile picture <AsteriskIcon size={8} /></Text>
+                
+                <Button size="md" variant="outline" action="positive" onPress={pickImage}>
+                    <ButtonText>Click to upload</ButtonText>
+                </Button>
+                {image && <Image source={{ uri: image }} style={styles.image} />}
+            </Box>
+
+                <Divider className="my-10 mb-5" />
+        </Box>
     );
 };
 
