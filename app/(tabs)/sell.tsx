@@ -15,17 +15,19 @@ import { Text } from '@/components/ui/text';
 import { Box } from '@/components/ui/box';
 
 
+
 export default function SellNow() {
   return (
     <SafeAreaView className="bg-white flex-1">
       <ScrollView>
         <Box className="mt-20 mb-5 items-center">
-          <Heading size="xl" className="mb-1"> Create an account </Heading>
+          <Heading bold={true} size="3xl" className="font-mono antialiased text-green-700">Start Selling</Heading>
+
           <HStack className="mt-2">
             <Text size="lg">Already have an account? </Text>
-            <Link href={`pages/login`}>
+            <Link href={`pages/log/login`}>
               <HStack>
-                <LinkText className="text-red-700" size="lg">Login</LinkText>
+                <LinkText className="text-red-700" size="lg">Sign in</LinkText>
               </HStack>
             </Link>
           </HStack>
