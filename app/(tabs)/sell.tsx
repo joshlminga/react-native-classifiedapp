@@ -7,6 +7,7 @@ import { Button, ButtonText} from '@/components/ui/button';
 import { Link as CustomLink, LinkText } from '@/components/ui/link';
 import { Stack,Link } from 'expo-router';
 
+import ProductUploadWizard from '../pages/product/upload';
 import { Divider } from '@/components/ui/divider';
 import { Heading } from '@/components/ui/heading';
 import { HStack } from '@/components/ui/hstack';
@@ -31,6 +32,10 @@ export default function SellNow() {
               </HStack>
             </Link>
           </HStack>
+        </Box>
+
+        <Box className="mt-0 px-4 py-10 bg-white ">
+            <ProductUploadWizard />
         </Box>
 
       </ScrollView>
