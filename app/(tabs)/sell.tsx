@@ -1,7 +1,7 @@
 import { Select, SelectTrigger, SelectInput, SelectIcon, SelectPortal, SelectBackdrop, SelectContent, SelectDragIndicatorWrapper, SelectDragIndicator, SelectItem } from '@/components/ui/select';
 import { AsteriskIcon, ChevronDownIcon } from '@/components/IconsList';
 import { Input,InputField,InputSlot } from '@/components/ui/input';
-import { SafeAreaView, ScrollView, FlatList  } from 'react-native';
+import { SafeAreaView, ScrollView, FlatList,Platform  } from 'react-native';
 import { Button, ButtonText} from '@/components/ui/button';
 
 import { Link as CustomLink, LinkText } from '@/components/ui/link';
@@ -15,14 +15,12 @@ import { Card } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { Box } from '@/components/ui/box';
 
-
-
 export default function SellNow() {
   return (
     <SafeAreaView className="bg-white flex-1">
       <ScrollView>
-        <Box className="mt-20 mb-5 items-center">
-          <Heading bold={true} size="3xl" className="font-mono antialiased text-green-700">Start Selling</Heading>
+        <Box className="mt-10 mb-5 items-center">
+          <Heading bold={true} size="3xl" className={`${Platform.OS === 'android' ? 'mt-10' : ''} font-mono antialiased text-green-700`}>Start Selling</Heading>
 
           <HStack className="mt-2">
             <Text size="lg">Already have an account? </Text>
@@ -34,9 +32,7 @@ export default function SellNow() {
           </HStack>
         </Box>
 
-        <Box className="mt-0 px-4 py-10 bg-white ">
-            <ProductUploadWizard />
-        </Box>
+        <ProductUploadWizard />
 
       </ScrollView>
     </SafeAreaView>

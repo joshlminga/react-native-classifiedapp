@@ -1,6 +1,6 @@
 import { Select, SelectTrigger, SelectInput, SelectIcon, SelectPortal, SelectBackdrop, SelectContent, SelectDragIndicatorWrapper, SelectDragIndicator, SelectItem } from '@/components/ui/select';
 import { SafeAreaView, ScrollView, ImageBackground  } from 'react-native';
-import { AsteriskIcon, ChevronDownIcon } from '@/components/IconsList';
+import { AsteriskIcon, ChevronDownIcon,ArrowLeftIcon, ArrowRightIcon } from '@/components/IconsList';
 import { Link as CustomLink, LinkText } from '@/components/ui/link';
 import { Input,InputField,InputSlot } from '@/components/ui/input';
 import { Button, ButtonText} from '@/components/ui/button';
@@ -13,8 +13,12 @@ import { Card } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { Box } from '@/components/ui/box';
 import { Link,Stack } from 'expo-router';
-
 import React, { useState } from 'react';
+
+import StepOne from './steps/step_one';
+import StepTwo from './steps/step_two';
+import StepThree from './steps/step_three';
+import StepFour from './steps/step_four';
 
 const ProductUploadWizard = () => {
   const [step, setStep] = useState(1);
@@ -32,116 +36,85 @@ const ProductUploadWizard = () => {
   };
 
   const renderProgressBar = () => {
-    const steps = [
-      { number: 1, label: 'Step 1' },
-      { number: 2, label: 'Step 2' },
-      { number: 3, label: 'Step 3' },
-      { number: 4, label: 'Step 4' }
-    ];
-    
+    const steps = [1, 2, 3, 4];
     return (
-      <View style={styles.progressContainer}>
-        {steps.map((stepItem) => (
-          <View key={stepItem.number} style={styles.progressStep}>
-            <Text style={[
-              styles.stepLabel,
-              stepItem.number <= step ? styles.activeLabel : styles.inactiveLabel
-            ]}>
-              {stepItem.label}
-            </Text>
-            <View style={styles.dotLineContainer}>
-              <View 
+      <Box className="flex-1 flex-row items-center my-5 px-4 ml-20">
+        {steps.map((stepNumber) => (
+          <Box key={stepNumber} className="flex-1 flex flex-row items-center">
+            <Box 
+              style={[
+                styles.progressDot,
+                stepNumber <= step ? styles.activeDot : styles.inactiveDot
+              ]} 
+            />
+            {stepNumber < 4 && (
+              <Box 
                 style={[
-                  styles.progressDot,
-                  stepItem.number <= step ? styles.activeDot : styles.inactiveDot
+                  styles.progressLine,
+                  stepNumber < step ? styles.activeLine : styles.inactiveLine
                 ]} 
               />
-              {stepItem.number < 4 && (
-                <View 
-                  style={[
-                    styles.progressLine,
-                    stepItem.number < step ? styles.activeLine : styles.inactiveLine
-                  ]} 
-                />
-              )}
-            </View>
-          </View>
+            )}
+          </Box>
         ))}
-      </View>
+      </Box>
     );
   };
 
   const renderStep = () => {
     switch (step) {
       case 1:
-        return <Text style={styles.stepText}>Step 1: Basic Information</Text>;
+        return <StepOne />;
       case 2:
-        return <Text style={styles.stepText}>Step 2: Pricing</Text>;
+        return <StepTwo />;
       case 3:
-        return <Text style={styles.stepText}>Step 3: Description</Text>;
+        return <StepThree />;
       case 4:
-        return <Text style={styles.stepText}>Step 4: Images</Text>;
+        return <StepFour/>;
       default:
         return null;
     }
   };
 
   return (
-    <View style={styles.container}>
-      {renderProgressBar()}
+    <Box style={styles.container}>
+        <Box className="mt-1 mb-5 items-center">
+            {renderProgressBar()}
+        </Box>
 
       <VStack space="md">
-        {renderStep()}
 
-        <HStack space="md" mt={4}>
+        <Box className="px-4">
+            {renderStep()}
+        </Box>
+
+        <HStack space="md" className="mt-5 px-4 justify-between">
           {step > 1 && (
-            <Button variant="outline" onPress={handleBack}>
-              <ButtonText>Back</ButtonText>
+            <Button variant="solid" action="positive" onPress={handleBack} className="flex-1 mr-2">
+              <ButtonText className="text-white"><ArrowLeftIcon size={12} color="white" /> Back</ButtonText>
             </Button>
           )}
           {step < 4 ? (
-            <Button onPress={handleNext}>
-              <ButtonText>Next</ButtonText>
+            <Button onPress={handleNext} className="flex-1 ml-2">
+              <ButtonText>Next <ArrowRightIcon size={12} color="white" /></ButtonText>
             </Button>
           ) : (
-            <Button onPress={handleSubmit}>
+            <Button onPress={handleSubmit} className="flex-1 ml-2">
               <ButtonText>Submit</ButtonText>
             </Button>
           )}
         </HStack>
       </VStack>
-    </View>
+    </Box>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
   },
   progressContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-    paddingHorizontal: 10,
   },
   progressStep: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  stepLabel: {
-    fontSize: 12,
-    marginBottom: 8,
-  },
-  activeLabel: {
-    color: '#006AFF',
-  },
-  inactiveLabel: {
-    color: '#9E9E9E',
-  },
-  dotLineContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
   },
   progressDot: {
     width: 12,
@@ -166,9 +139,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#E0E0E0',
   },
   stepText: {
-    fontSize: 16,
-    marginVertical: 20,
-    textAlign: 'center',
   },
 });
 

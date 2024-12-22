@@ -37,3 +37,13 @@ export const PlusIcon = ({ size = 20, color = "black" }) => (
 export const UserIcon = ({ size = 20, color = "black" }) => (
   <FontAwesome5 name="user" size={size} color={color}/>
 );
+
+// Arrow Right
+export const ArrowRightIcon = ({ size = 20, color = "black" }) => (
+  <FontAwesome name="long-arrow-right" size={size} color={color} />
+);
+
+// Arrow Left
+export const ArrowLeftIcon = ({ size = 20, color = "black" }) => (
+  <FontAwesome name="long-arrow-left" size={size} color={color} />
+);
